@@ -68,11 +68,11 @@
         <div>Hola Mundo</div>
         <form action="otra.jsp" method="POST">
             <input name="variable" >
-            <input name="OK" value="Aceptar" type="submit">
+            <input name="OK" value="Boton de Submit" type="submit">
         </form>
         <div id="resultado"></div>
 
-        <button onclick="espicho();">Espichame</button>
+        <button onclick="espicho();">Boton con Javascript Vanilla</button>
         <%
 
             String var = request.getParameter("variable");
@@ -82,6 +82,6 @@
 
         %>
 
-        <button onclick="espicho_jquery();">Espichame Jquery</button>
+        <button onclick="espicho_jquery();">Boton Jquery</button>
     </body>
 </html>
