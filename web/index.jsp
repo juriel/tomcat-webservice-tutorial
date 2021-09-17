@@ -11,6 +11,27 @@
     </head>
 
     <script type="text/javascript">
+        
+function send_form_get(){
+    
+}
+        function post_form(form, url) {
+
+            alert("submit?");
+            pojo = {};
+            elements = form.getElementsByTagName("input");
+            for (const input of elements) {
+                pojo[input.name] = input.value; 
+            }
+            selects = form.getElementsByTagName("select");
+            for (const selects of selects) {
+                pojo[input.name] = input.value; 
+            }
+            
+            
+            console.log(pojo);
+            return false;
+        }
         function espicho_jquery() {
             persona = {};
             persona.name = "Pedro Martinez Rodriguez JQUERY";
@@ -18,7 +39,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "ws/person/sendpersona",                
+                url: "ws/person/sendpersona",
                 data: JSON.stringify(persona),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -66,9 +87,12 @@
 
     <body>
         <div>Hola Mundo</div>
-        <form action="otra.jsp" method="POST">
-            <input name="variable" >
-            <input name="OK" value="Boton de Submit" type="submit">
+        <form id="xyz" action="otra.jsp" method="POST" onsubmit="return post_form(this, 'ws/xyz', function(){alert(" salvo");});">
+            <input name="variable" ><br/>
+            <input name="variable2" ><br/>
+            <input name="variable3" ><br/>
+            <input name="variable4" ><br/>
+            <input name="OK" value="Boton de Submit" type="submit"   >
         </form>
         <div id="resultado"></div>
 
