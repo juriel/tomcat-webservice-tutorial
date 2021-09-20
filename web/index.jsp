@@ -11,32 +11,39 @@
     </head>
 
     <script type="text/javascript">
-        
-function send_form_get(){
-    
-}
+
+        function send_form_get() {
+            return false;
+
+        }
         function post_form(form, url) {
 
-            alert("submit?");
             pojo = {};
             elements = form.getElementsByTagName("input");
+
             for (const input of elements) {
-                pojo[input.name] = input.value; 
+                pojo[input.name] = input.value;
             }
-            selects = form.getElementsByTagName("select");
-            for (const selects of selects) {
-                pojo[input.name] = input.value; 
+
+            selectss = form.getElementsByTagName("select");
+            for (const selects of selectss) {
+                pojo[input.name] = input.value;
             }
-            
-            
+
+            selectss = form.getElementsByTagName("select");
+
+            //AJAX Para invocar 
+
+
             console.log(pojo);
             return false;
         }
+
+
         function espicho_jquery() {
             persona = {};
             persona.name = "Pedro Martinez Rodriguez JQUERY";
             persona.age = 40;
-
             $.ajax({
                 type: "POST",
                 url: "ws/person/sendpersona",
@@ -62,7 +69,6 @@ function send_form_get(){
                 console.log("Nombre " + persona.name);
                 div = document.getElementById("resultado");
                 div.innerHTML = " El nombre es " + persona.name;
-
             } else {
                 console.log("TODO NO OK " + this.status);
             }
@@ -72,11 +78,9 @@ function send_form_get(){
             var client = new XMLHttpRequest();
             client.onload = handler;
             client.open("POST", "ws/person/sendpersona");
-
             client.setRequestHeader("Content-Type", "application/json");
             a = document.getElementsByName("variable");
             console.log(a[0].value);
-
             persona = {};
             persona.name = "Pedro MArtinez Rodriguez";
             persona.age = 40;
@@ -87,10 +91,11 @@ function send_form_get(){
 
     <body>
         <div>Hola Mundo</div>
-        <form id="xyz" action="otra.jsp" method="POST" onsubmit="return post_form(this, 'ws/xyz', function(){alert(" salvo");});">
+        <form id="xyz" action="otra.jsp" method="POST" onsubmit="return  post_form(this, 'ws/person/sendpersona')">
             <input name="variable" ><br/>
             <input name="variable2" ><br/>
             <input name="variable3" ><br/>
+            <p><input name="variable5" ></p>
             <input name="variable4" ><br/>
             <input name="OK" value="Boton de Submit" type="submit"   >
         </form>
