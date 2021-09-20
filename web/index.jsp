@@ -30,7 +30,7 @@
                 pojo[input.name] = input.value;
             }
 
-            selectss = form.getElementsByTagName("select");
+            texareas = form.getElementsByTagName("texarea");
 
             //AJAX Para invocar 
 
